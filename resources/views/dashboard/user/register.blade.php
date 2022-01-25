@@ -16,13 +16,22 @@
             <div class="col-md-4 offset-md-4" style="margin-top: 45px;">
                 <h4>User Register</h4><hr>
                 <form action="{{ route('user.create') }}" method="post" autocomplete="off">
-                    @if (session()->has('success'))
+                    {{-- @if (session()->has('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             {{ session('success') }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
+                    @endif --}}
+                    @if (Session::get('success'))
+                        <div class="alert alert-success">
+                            {{ Session::get('success') }}
+                        </div>
                     @endif
-
+                    @if (Session::get('fail'))
+                        <div class="alert alert-danger">
+                            {{ Session::get('fail') }}
+                        </div>
+                    @endif
                     @csrf
                     <div class="form-group">
                         <label for="name">Name</label>
