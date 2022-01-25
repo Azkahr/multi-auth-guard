@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ Route::prefix('user')->name('user.')->group(function(){
     Route::middleware(['guest'])->group(function(){
         Route::view('/login', 'dashboard.user.login')->name('login');
         Route::view('/register', 'dashboard.user.register')->name('register');
+        Route::post('/create', [UserController::class, 'create'])->name('create');
     });
 
     Route::middleware(['auth'])->group(function(){

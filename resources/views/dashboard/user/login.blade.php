@@ -25,8 +25,10 @@
                         <input type="password" class="form-control" name="password" placeholder="Enter password">
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="submit" class="btn btn-primary mt-2">Login</button>
                     </div>
+                    <br>
+                    <a href="{{ route('user.register') }}">Create new account</a>
                 </form>
             </div>
         </div>
