@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DoctorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +52,19 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::middleware(['auth:admin, PreventBackHistory'])->group(function(){
         Route::view('/home', 'dashboard.admin.home')->name('home');
         Route::post('/logout', [AdminController::class, 'logout'])->name('logout');
+    });
+    
+});
+
+Route::prefix('doctor')->name('doctor.')->group(function(){
+    
+    Route::middleware(['guest:doctor'])->group(function(){
+        Route::view('/login', 'dashboard.doctor.login')->name('login');
+        Route::view('/register', 'dashboard.doctor/register')->name('register');
+    });
+    
+    Route::middleware(['auth:doctor'])->group(function(){
+        Route::view('/home', 'dashboard.doctor.home')->name('home');
     });
     
 });
