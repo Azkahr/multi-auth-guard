@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
     
     Route::middleware(['guest:admin'])->group(function(){
         Route::view('/login', 'dashboard.admin.login')->name('login');
+        Route::post('/check', [AdminController::class, 'check'])->name('check');
     });
 
     Route::middleware(['auth:admin'])->group(function(){
