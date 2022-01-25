@@ -29,4 +29,26 @@ class UserController extends Controller
 
         // return redirect()->with('success', 'Registration successfully!');
     }
+
+    public function check(Request $request){
+        //validasi input
+        $request->validate([
+            'email' => 'required|email|exists:users,email',
+            'password' => 'required|min:5|max:30'
+        ], [
+            'email.exists' => 'This email is not exists, you are not registered' 
+        ]);
+
+        $credentials = $request->only('email', 'password');
+        if(Auth::attempt($credentials)){
+            return redirect()->route('user.home');
+        } else {
+            return redirect()->route('user.login')->with('fail', 'Wrong email or password');
+        }
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect('/');
+    }
 }
