@@ -40,7 +40,7 @@ class UserController extends Controller
         ]);
 
         $credentials = $request->only('email', 'password');
-        if(Auth::attempt($credentials)){
+        if(Auth::guard('web')->attempt($credentials)){
             return redirect()->route('user.home');
         } else {
             return redirect()->route('user.login')->with('fail', 'Wrong email or password');
@@ -48,7 +48,7 @@ class UserController extends Controller
     }
 
     public function logout(){
-        Auth::logout();
+        Auth::guard('web')->logout();
         return redirect('/');
     }
 }
