@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>User Dashboard | Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-</head>
-<body>
+@extends('layout.main')
+
+@section('container')
     
-    <div class="container">
-        <div class="row">   
+    <title>User Dashboard | Home</title>
+
             <div class="col-md-6 offset-md-3" style="margin-top: 45px">
                 <h4>User Dashboard</h4><hr>
                 <table class="table table-striped table-inverse table-responsive">
@@ -33,8 +26,4 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-    </div>
-    
-</body>
-</html>
+@endsection
