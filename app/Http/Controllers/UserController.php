@@ -12,7 +12,7 @@ class UserController extends Controller
         //validasi
         $validatedData = $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email:dns|unique:users,email',
             'password' => 'required|min:5|max:30',
             'cpassword' => 'required|min:5|max:30|same:password'
         ]);
@@ -33,7 +33,7 @@ class UserController extends Controller
     public function check(Request $request){
         //validasi input
         $request->validate([
-            'email' => 'required|email|exists:users,email',
+            'email' => 'required|email:dns|exists:users,email',
             'password' => 'required|min:5|max:30'
         ], [
             'email.exists' => 'This email is not exists, you are not registered' 
