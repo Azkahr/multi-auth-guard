@@ -26,7 +26,7 @@ class DoctorController extends Controller
         if($validatedData){
             return redirect()->back()->with('success', 'Registered succesfully');
         } else {
-            return redirect()->back->with('fail', 'Something went wrong, failed to register');
+            return redirect()->back()->with('fail', 'Something went wrong, failed to register');
         }
     }
 
@@ -49,7 +49,7 @@ class DoctorController extends Controller
     }
 
     public function logout(){
-        
+
         Auth::guard('doctor')->logout();
         
         return redirect('/');
