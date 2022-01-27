@@ -42,7 +42,7 @@ class DoctorController extends Controller
         $creds = $request->only('email', 'password');
 
         if(Auth::guard('doctor')->attempt($creds)){
-            return redirect()->route('doctor.home');
+            return redirect()->route('doctor.home')->with('success', 'Login successfully');
         } else {
             return redirect()->route('doctor.login')->with('fail', 'Wrong email or password');
         }

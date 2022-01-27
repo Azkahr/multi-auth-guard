@@ -6,6 +6,11 @@
     <body style="background-color: #d7dadb">
                 <div class="col-md-6 offset-md-3" style="margin-top: 45px">
                     <h4>Admin Dashboard</h4><hr>
+                    @if (Session::get('success'))
+                        <div class="alert alert-dark">
+                            {{ Session::get('success') }}
+                        </div>
+                    @endif
                     <table class="table table-striped table-inverse table-responsive">
                         <thead class="thead-inverse">
                             <tr>
