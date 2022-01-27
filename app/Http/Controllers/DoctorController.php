@@ -24,9 +24,9 @@ class DoctorController extends Controller
         Doctor::create($validatedData);
 
         if($validatedData){
-            return redirect()->back()->with('success', 'Registered succesfully');
+            return redirect()->back()->with('success', 'Registered successfully');
         } else {
-            return redirect()->back()->with('fail', 'Something went wrong, failed to register');
+            return redirect()->back()->with('fail', 'Register failed');
         }
     }
 
