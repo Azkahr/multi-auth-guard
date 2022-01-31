@@ -17,6 +17,8 @@ class DoctorController extends Controller
             'hospital' => 'required',
             'password' => 'required|min:5|max:30',
             'cpassword' => 'required|min:5|max:30|same:password'
+        ],[
+            'cpassword.same' => 'The confirm password and password must match'
         ]);
 
         $validatedData['password'] = bcrypt($validatedData['password']);
